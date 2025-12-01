@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="mainDiv">
+    <table border="1">
+      <tr>
+        <th>name</th>
+        <th>age</th>
+      </tr>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <br><br><br>
+
+  <form>
+    <input id="name" type="text" placeholder="enter your name"><br>
+    <input id="age" type="text" placeholder="enter your age"><br>
+    <button id="btn">submit</button>
+  </form>
+
+  <script>
+
+    function getData() {
+      fetch("http://localhost:3000/user")
+        .then(response => response.json())
+        .then(response => {
+          let content = '';
+          response.forEach((data) => {
+            content += `
+              <tr>
+                <td>${data.name}</td>
+                <td>${data.age}</td>
+                <td><button class="update" data-id="${data.id}">update</button></td>
+                <td><button class="delete" data-id="${data.id}">delete</button></td>
+              </tr>`;
+          });
+
+          document.querySelector('tbody').innerHTML = content;
+
+          document.querySelectorAll('.delete').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              let id = e.target.dataset.id;
+              deleteData(id);
+            });
+          });
+
+        })
+        .catch(error => console.log(error));
+    }
+
+    getData();
+
+
+    
+    function updateData(data) {
+      fetch("http://localhost:3000/user", {
+        method: "POST",
+        body: data
+      });
+    }
+
+
+   
+    function deleteData(id) {
+      fetch(`http://localhost:3000/user/${id}`, {
+        method: "DELETE"
+      })
+      .then(() => getData());
+    }
+
+
+    
+    function postData(data) {
+      fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: data
+      });
+    }
+
+
+    document.querySelector('#btn').addEventListener('click', e => {
+      e.preventDefault();
+      let name = document.querySelector('#name').value;
+      let age = document.querySelector('#age').value;
+      let data = JSON.stringify({ name: name, age: age });
+
+      postData(data);
+      getData();
+    });
+
+  </script>
+
+</body>
+</html>

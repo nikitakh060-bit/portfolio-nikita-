@@ -1,0 +1,40 @@
+{
+  "user": [
+    {
+      "name": "Nikita"
+    },
+    {
+      "age": 20
+    },
+    {
+      "id": "ac95",
+      "name": "gytt",
+      "age": "3"
+    },
+    {
+      "id": "d508",
+      "name": "gytt",
+      "age": "1"
+    },
+    {
+      "id": "3de0",
+      "name": "",
+      "age": ""
+    },
+    {
+      "id": "1497",
+      "name": "nikita khadka",
+      "age": "3"
+    },
+    {
+      "id": "b835",
+      "name": "nikita khadka",
+      "age": "3"
+    },
+    {
+      "id": "ebf3",
+      "name": "niku",
+      "age": "22222"
+    }
+  ]
+}

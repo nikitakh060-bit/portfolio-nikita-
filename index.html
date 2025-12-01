@@ -3,45 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>portfolio</title>
-
-  <!-- Linking CSS -->
+  <title>Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-bar"></div>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="movie.MP4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Header -->
   <header>
     <h1>Nikita Khadka</h1>
-    <p>welcome to my portfolio</p>
+    <p>Welcome to my profile.</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
-    <a href="#intro">Introduction</a>
-    <a href="#subject">Full Stack</a>
-    <a href="#contact">contact</a>
+    <button id="menu-button" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="#intro">Introduction</a>
+      <a href="#projects">Travel Projects</a>
+      <a href="#subject">Travel</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
+  <!-- Introduction Section -->
   <section id="intro">
     <h2>Introduction</h2>
-
-    <!-- Image added here -->
-    <img src="images/profile1.png" alt="Nikita Photo" width="200" style="border-radius: 10px;">
-
-    <p>Hello Myself Nikita. Welcome to my portfolio website.</p>
+    <img src="images/profile1.png" alt="Nikita Photo">
+    <p>Hello! I’m Nikita. I love travelling and exploring new cultures, places, and stories.</p>
   </section>
 
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Travel Projects</h2>
+    <p>Some of the memorable journeys I’ve explored:</p>
+    <div id="projects-grid">
+      <div class="project-card">
+        <h3>Kori Trek</h3>
+        <p>A peaceful and breathtaking trail with mountain views.</p>
+      </div>
+  </section>
+
+  <!-- Travel Section -->
   <section id="subject">
-    <h2>Full Stack</h2>
-    <p>I am learning full stack development.</p>
+    <h2>Travel</h2>
+    <p>I enjoy traveling, and the background video shows my Kori trek.</p>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>email: nikitakh060@gmail.com</p>
+    <form id="contact-form-id">
+      <input type="text" id="name" placeholder="Nikita Khadka" required><br>
+      <input type="email" id="email" placeholder="nikita793@gmail.com" required><br>
+    </form>
+    <div id="form-message"></div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Nikita Khadka</p>
   </footer>
+
+  <!-- JS Script -->
+  <script src="js/script.js">
+
+  </script>
+
+
 </body>
 </html>
